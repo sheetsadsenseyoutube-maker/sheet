@@ -1,1 +1,70 @@
-index.htm
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterweb | Official YouTube Promotion</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">ALTERWEB <span>PRO</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <div class="hero-section">
+            <h1>Boost Your YouTube Journey</h1>
+            <p>Enter your video link below to check status and activate your promotion.</p>
+            
+            <div class="search-box">
+                <input type="text" id="youtube-url" placeholder="Paste Official YouTube Video Link Here...">
+                <button onclick="checkStatus()" class="btn-check">CHECK STATUS</button>
+            </div>
+        </div>
+
+        <div id="video-section" class="hidden">
+            <div class="video-wrapper">
+                <iframe id="yt-player" width="100%" height="400" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+            
+            <div class="video-info-card">
+                <h3>Video Intelligence Report</h3>
+                <p><strong>Title:</strong> <span id="video-title">Fetching...</span></p>
+                <p><strong>Source Link:</strong> <span id="video-link-text"></span></p>
+                <p><strong>Estimated Size:</strong> <span id="video-size">Calculating...</span></p>
+                <p><strong>Quality:</strong> 1080p HD / 4K Supported</p>
+                <p><strong>Status:</strong> Ready for Promotion</p>
+            </div>
+
+            <div class="activation-box">
+                <h2>Activate Promotion</h2>
+                <div class="buy-section">
+                    <div class="price-tag">
+                        <span class="old-price"><del>₹150</del></span>
+                        <span class="new-price">₹50</span>
+                    </div>
+                    <a href="https://wa.me/91YOURNUMBERHERE?text=I%20want%20to%20buy%20Alterweb%20YouTube%20Key" target="_blank" class="btn-buy">BUY</a>
+                </div>
+                
+                <div class="key-submit-section">
+                    <input type="text" id="activation-key" placeholder="Enter 8-Digit Activation Key">
+                    <button onclick="applyKey()" class="btn-submit">Submit</button>
+                </div>
+                
+                <div id="status-message" class="status-msg"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Alterweb Official. All Rights Reserved.</p>
+        <p class="footer-note">Note: Processing takes 1 to 30 days depending on YouTube algorithms.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
