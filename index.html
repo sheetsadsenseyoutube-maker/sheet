@@ -1,109 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterweb | Official YouTube Promotion</title>
+    <title>Payment & Contact</title>
     <style>
-        /* CSS कोड यहीं डाल दिया है */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #050505; color: #e0e0e0; min-height: 100vh; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: #0a0a0a; border-bottom: 1px solid #222; }
-        .logo { font-size: 28px; font-weight: 800; color: #fff; }
-        .logo span { color: #e50914; }
-        .nav-links { list-style: none; display: flex; gap: 30px; }
-        .nav-links a { text-decoration: none; color: #aaa; font-weight: 600; }
-        .main-container { max-width: 900px; margin: 50px auto; width: 90%; text-align: center; }
-        .search-box input { width: 100%; max-width: 700px; padding: 18px 25px; border-radius: 8px; border: 1px solid #333; background: #111; color: #fff; margin-bottom: 15px; outline: none; }
-        .btn-check { padding: 16px 40px; border-radius: 8px; border: none; background: #e50914; color: white; font-weight: 800; cursor: pointer; width: 100%; max-width: 300px; }
-        #video-section { margin-top: 30px; background: #0f0f0f; padding: 30px; border-radius: 12px; border: 1px solid #222; display: none; }
-        .video-info-card { background: #181818; padding: 20px; border-radius: 8px; text-align: left; margin: 20px 0; border-left: 4px solid #e50914; }
-        .activation-box { background: #111; padding: 25px; border-radius: 8px; border: 1px solid #333; }
-        .price-tag .old-price { color: #777; font-size: 18px; text-decoration: line-through; margin-right: 10px; }
-        .price-tag .new-price { color: #00e676; font-size: 28px; font-weight: 800; }
-        .btn-buy { background: #25D366; color: #000; text-decoration: none; padding: 10px 30px; border-radius: 6px; font-weight: 800; display: inline-block; margin: 15px 0; }
-        .key-submit-section { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
-        .key-submit-section input { padding: 15px; border-radius: 6px; border: 1px solid #444; background: #000; color: #00e676; text-align: center; }
-        .btn-submit { padding: 15px 30px; border-radius: 6px; border: none; background: #fff; font-weight: 800; cursor: pointer; }
-        .status-msg { margin-top: 20px; padding: 15px; border-radius: 6px; display: none; font-weight: bold; }
-        footer { text-align: center; padding: 30px; color: #666; font-size: 13px; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+        h2 { color: #333; margin-bottom: 20px; }
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            background: #eee;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ccc;
+        }
+        .qr-placeholder img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-insta {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+        .btn-insta:hover { opacity: 0.9; transform: translateY(-2px); }
+        .footer-text { font-size: 12px; color: #888; margin-top: 15px; }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">ALTERWEB <span>PRO</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-        </ul>
-    </nav>
 
-    <div class="main-container">
-        <h1>Boost Your YouTube Journey</h1>
-        <p style="color:#888; margin-bottom:30px;">Enter your video link below to start</p>
-        
-        <div class="search-box">
-            <input type="text" id="youtube-url" placeholder="Paste YouTube Link Here...">
-            <br>
-            <button onclick="checkStatus()" class="btn-check">CHECK STATUS</button>
-        </div>
-
-        <div id="video-section">
-            <iframe id="yt-player" width="100%" height="350" src="" frameborder="0" allowfullscreen style="border-radius:8px;"></iframe>
-            <div class="video-info-card">
-                <p><strong>Title:</strong> <span id="video-title">Fetching...</span></p>
-                <p><strong>Size:</strong> <span id="video-size">...</span></p>
-                <p><strong>Process:</strong> 1 to 30 Days</p>
-            </div>
-
-            <div class="activation-box">
-                <div class="price-tag">
-                    <span class="old-price">₹150</span><span class="new-price">₹50</span>
-                </div>
-                <a href="https://wa.me/9219238572?text=BuyKey" target="_blank" class="btn-buy">BUY KEY</a>
-                
-                <div class="key-submit-section">
-                    <input type="text" id="activation-key" placeholder="ENTER KEY">
-                    <button onclick="applyKey()" class="btn-submit">SUBMIT</button>
-                </div>
-                <div id="status-message" class="status-msg"></div>
-            </div>
-        </div>
+<div class="card">
+    <h2>भुगतान और संपर्क</h2>
+    
+    <div class="qr-placeholder">
+        <img src="qr-code.png" alt="Scan to Pay">
     </div>
+    <p style="color: #666; font-size: 14px;">स्कैन करके पेमेंट करें</p>
 
-    <footer>
-        <p>&copy; 2026 Alterweb Official. Processing takes 1 to 30 days.</p>
-    </footer>
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
 
-    <script>
-        // JS कोड भी यहीं डाल दिया है
-        const validKeys = ["AWY-101X", "AWY-102Y", "AWY-103Z"]; // अपनी बाकी कीज़ यहाँ जोड़ लेना
+    <a href="https://ig.me/m/YOUR_INSTA_USERNAME" target="_blank" class="btn btn-insta">
+        Instagram पर मेसेज करें
+    </a>
 
-        function checkStatus() {
-            const url = document.getElementById('youtube-url').value;
-            const id = url.split('v=')[1] || url.split('/').pop();
-            if(!id) return alert("Invalid Link");
-            
-            document.getElementById('video-section').style.display = 'block';
-            document.getElementById('yt-player').src = "https://www.youtube.com/embed/" + id;
-            document.getElementById('video-title').innerText = "YouTube Video Found";
-            document.getElementById('video-size').innerText = Math.floor(Math.random() * 500) + " MB";
-        }
+    <p class="footer-text">सुरक्षित भुगतान | 24/7 सहायता</p>
+</div>
 
-        function applyKey() {
-            const key = document.getElementById('activation-key').value.toUpperCase();
-            const msg = document.getElementById('status-message');
-            msg.style.display = 'block';
-            
-            if(validKeys.includes(key)) {
-                msg.style.color = "#00C851";
-                msg.innerText = "Congratulation! Your demo complete. Refresh YouTube after 1 to 30 days.";
-            } else {
-                msg.style.color = "#ff4444";
-                msg.innerText = "Invalid Key!";
-            }
-        }
-    </script>
 </body>
 </html>
